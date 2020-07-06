@@ -36,6 +36,8 @@ namespace BookStoreClone.ViewModel
             BoQuaDangNhapCommand = new RelayCommand<Window>((p) => { return true; }, (p) =>
             {
                 IsLogin = false;
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
                 p.Hide();
             });
         }
@@ -53,7 +55,7 @@ namespace BookStoreClone.ViewModel
                 MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-                p.Close();
+                p.Hide();
 
             }
             else

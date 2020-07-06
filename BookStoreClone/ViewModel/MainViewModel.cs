@@ -79,10 +79,12 @@ namespace BookStoreClone.ViewModel
         public string MKMoi { get => _mKMoi; set { _mKMoi = value; OnPropertyChanged(); } }
         public string XNMK { get => _xNMK; set { _xNMK = value; OnPropertyChanged(); } }
 
+        public string TitleApp { get => _titleApp; set { _titleApp = value; OnPropertyChanged(); } }
 
         private PackIconKind _maximize_Icon;
         private string _textTimKiem;
 
+        string _titleApp;
         public MainViewModel()
         {
 
@@ -231,48 +233,55 @@ namespace BookStoreClone.ViewModel
                 {
                     case "Tìm kiếm sách":
                         using (null)
-                        {
+                        
                             PnlContent.Children.Clear();
                             PnlContent.Children.Add(new TimKiemSachUC() { });
-                        }
+                            TitleApp = "Tìm kiếm sách";
+                        
                         break;
 
                     case "Dữ Liệu Sách":
-                        using (null)
-                        {
+                        
                             PnlContent.Children.Clear();
                             PnlContent.Children.Add(new QuanLyDuLieuSach() { });
-                        }
+                            TitleApp = "Dữ Liệu Sách";
+                    
                         break;
 
                     case "Khách Hàng":
                         PnlContent.Children.Clear();
                         PnlContent.Children.Add(new TimKiemSachUC() { });
+                        TitleApp = "Khách Hàng";
                         break;
 
                     case "Quản lý nhân viên":
                         PnlContent.Children.Clear();
                         PnlContent.Children.Add(new QuanLyKhachHangUC() { });
+                        TitleApp = "Quản lý nhân viên";
                         break;
 
                     case "Nhập Sách":
                         PnlContent.Children.Clear();
-
+                        PnlContent.Children.Add(new QuanLyNhapSachUC() { });
+                        TitleApp = "Nhập Sách";
                         break;
 
                     case "Lập Hóa Đơn Bán Sách":
                         PnlContent.Children.Clear();
-
+                        PnlContent.Children.Add(new QuanLyHoaDonUC() { });
+                        TitleApp = "Lập Hóa Đơn Bán Sách";
                         break;
 
                     case "Lập Phiếu Thu Tiền":
                         PnlContent.Children.Clear();
                         PnlContent.Children.Add(new PhieuThuTienUC());
+                        TitleApp = "Lập Phiếu Thu Tiền";
                         break;
 
                     case "Báo Cáo Công Nợ":
                         PnlContent.Children.Clear();
-
+                      
+                        TitleApp = "Lập Phiếu Thu Tiền";
                         break;
 
                     case "Báo Cáo Tồn Kho":
@@ -283,6 +292,7 @@ namespace BookStoreClone.ViewModel
                     case "Quản Lý Hệ Thống":
                         PnlContent.Children.Clear();
                         PnlContent.Children.Add(new QuanLyHeThongVM());
+
                         break;
                 }
             }
@@ -292,6 +302,7 @@ namespace BookStoreClone.ViewModel
             {
                 PnlContent = p;
                 p.Children.Add(new TimKiemSachUC());
+                TitleApp = "Tìm kiếm sách";
             }
 
         );
